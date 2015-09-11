@@ -82,7 +82,8 @@
 ]
 
 
-民主政治還要殺人 = {
+民主政治還要殺人字詞 = {
+    '種類': '字詞',
     '來源': (
         {'名': '自由時報',
          '網址': 'http://news.ltn.com.tw/news/politics/breakingnews/1440958'},
@@ -92,6 +93,67 @@
     ),
     '資料': [
         ('剛才', '塌嘟仔', '頭拄仔'),
+    ]
+}
+民主政治還要殺人語句 = {
+    '來源': (
+        {'名': '自由時報',
+         '網址': 'http://news.ltn.com.tw/news/politics/breakingnews/1440958'},
+        {'名': '自由時報',
+         '網址': 'http://news.ltn.com.tw/news/politics/breakingnews/1440958'},
+        {'名': '薛丞宏'}
+    ),
+    '資料': [
         ('救人哦', '救郎哦', '救人哦')
     ]
-},
+}
+
+台鐵退票收4成資料 = [
+    {
+        '來源': (
+            {'名': 'IronWolf',
+             '網址': 'https://www.ptt.cc/bbs/Gossiping/M.1441944941.A.FF0.html'},
+            {'名': '薛丞宏'}
+        ),
+        '資料': [
+            ('', '哇三小', ''),
+        ]
+    },
+    {
+        '來源': (
+            {'名': 'darling520',
+             '網址': 'https://www.ptt.cc/bbs/Gossiping/M.1441944941.A.FF0.html'},
+            {'名': '薛丞宏'}
+        ),
+        '資料': [
+            ('', '哇你老木哇', ''),
+        ]
+    },
+    {
+        '來源': (
+            {'名': 'arcc',
+             '網址': 'https://www.ptt.cc/bbs/Gossiping/M.1441944941.A.FF0.html'},
+            {'名': '薛丞宏'}
+        ),
+        '資料': [
+            ('', '夕賀', ''),
+        ]
+    },
+]
+
+你也懂台語字資料 = [
+    {
+        '來源': (
+            {'名': 'Liz',
+             '網址': 'http://liztaigi.blogspot.tw/2015/08/blog-post_31.html'},
+            {'名': 'Liz',
+             '網址': 'http://liztaigi.blogspot.tw/2015/08/blog-post_31.html'},
+        ),
+        '資料': [
+            ('', '您真了不起，簡直就是聖人！', ('你真了不起，bē輸ná聖人leh！',
+                                   'Lí tsin liáu-put-khí, bē-su ná sìng-jîn--leh!')),
+            ('', '哩金料不key，美蘇納性臨咧！', ('你真了不起，bē輸ná聖人leh！',
+                                     'Lí tsin liáu-put-khí, bē-su ná sìng-jîn--leh!')),
+        ]
+    },
+]
