@@ -172,24 +172,22 @@ import yaml
     '下層': [],
 }
 for 規組語句資料 in 夜市資料['資料']:
-    頂層 = 夜市輸出資料
+    這組資料 = []
     for 第幾層, (來源, 語句資料) in enumerate(zip_longest(夜市資料['來源'], 規組語句資料)):
         if 第幾層 == 0:
             新資料 = {
                 '來源': 來源,
                 '外語語言': '華語',
                 '外語資料': 語句資料,
-                '下層': [],
             }
         else:
             新資料 = {
                 '來源': 來源,
                 '文本資料': 語句資料,
-                '下層': [],
             }
-        頂層['下層'].append(新資料)
-        頂層 = 新資料
+        這組資料.append(新資料)
+    夜市輸出資料['下層'].append({'資料':這組資料})
 
 print(yaml.dump(夜市輸出資料, default_flow_style=False, allow_unicode=True))
-with open('柱柱姊掃街變成來亂的.yaml','w') as 檔案:
-    yaml.dump(夜市輸出資料,檔案, default_flow_style=False, allow_unicode=True)
+with open('柱柱姊掃街變成來亂的.yaml', 'w') as 檔案:
+    yaml.dump(夜市輸出資料, 檔案, default_flow_style=False, allow_unicode=True)
