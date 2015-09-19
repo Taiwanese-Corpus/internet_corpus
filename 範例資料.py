@@ -186,8 +186,7 @@ for 規組語句資料 in 夜市資料['資料']:
                 '文本資料': 語句資料,
             }
         這組資料.append(新資料)
-    夜市輸出資料['下層'].append({'資料':這組資料})
+    夜市輸出資料['下層'].append({'相關資料組':這組資料})
 
-print(yaml.dump(夜市輸出資料, default_flow_style=False, allow_unicode=True))
 with open('柱柱姊掃街變成來亂的.yaml', 'w') as 檔案:
     yaml.dump(夜市輸出資料, 檔案, default_flow_style=False, allow_unicode=True)
