@@ -1,0 +1,30 @@
+{% extends "網路語料/框.html" %}
+
+{% block 內容 %}
+	{% if 語料 %}
+	<table class="資料">
+		<tr>
+			<td></td>
+			<td>{{ 語料.分類 }}</td>
+			<td></td>
+			<td>頭一擺翻譯時間：{{ 語料.收錄時間|date:"Y-m-d" }}
+			｜ 上尾修改時間：{{ 語料.上尾修改時間|date:"Y-m-d" }}
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<th>華語內容</th>
+			<td></td>
+			<th>臺語翻譯</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>{{ 語料.華語內容 }}</td>
+			<td></td>
+			<td>{{ 語料.臺語內容 }}</td>
+		</tr>
+	</table>
+	{% else %}
+	<p>無文章</p>
+	{% endif %}
+{% endblock %}
