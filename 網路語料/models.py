@@ -2,12 +2,13 @@ import json
 
 from django.db import models
 from django.forms.models import ModelForm
-from django.core.exceptions import ValidationError
+from django import forms
 
 
 預設來源 = json.dumps({
     '名': '',
-    '網址': 'http://',
+    '網址': '',
+    '影片': '',
 }, indent=2, ensure_ascii=False, sort_keys=True)
 
 
@@ -15,17 +16,17 @@ def 愛有名(value):
     try:
         資料 = json.loads(value)
     except:
-        raise ValidationError(
+        raise forms.ValidationError(
             ('愛是json'),
         )
     try:
         名 = 資料['名']
     except:
-        raise ValidationError(
+        raise forms.ValidationError(
             ('愛有名'),
         )
     if 名 == '':
-        raise ValidationError(
+        raise forms.ValidationError(
             ('名袂使是空的'),
         )
 
@@ -53,6 +54,17 @@ class 語料表格(ModelForm):
     class Meta:
         model = 語料表
         fields = ['華語來源', '華語內容', '臺語來源', '臺語內容', '備註']
+
+    def clean(self):
+        cleaned_data = super(語料表格, self).clean()
+        華語內容 = cleaned_data.get("華語內容")
+        華語來源 = cleaned_data.get("華語來源")
+
+        if 華語內容 != '':
+            愛有名(華語來源)
+        elif 華語來源 != '':
+#             self.add_error('華語來源', '華語無內容有來源')
+            raise forms.ValidationError(('華語無內容有來源'),)
 
 
 class 正規化表格(ModelForm):

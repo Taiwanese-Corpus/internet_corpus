@@ -2,6 +2,7 @@
 
 {% block 內容 %}
 	{% if 表格 %}
+		{{ 表格.non_field_errors }}
 		<form action="" method="post">{% csrf_token %}
 		<table class="資料">
 			<tr>
