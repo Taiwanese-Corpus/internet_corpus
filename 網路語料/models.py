@@ -44,6 +44,9 @@ class 語料表(models.Model):
 
     備註 = models.CharField(max_length=200, blank=True)
 
+    def __str__(self):
+        return '{} {}'.format(self.臺語內容.split()[0], self.備註)
+
 
 class 語料表格(ModelForm):
 
