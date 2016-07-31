@@ -11,15 +11,17 @@ def 全部語料(request):
 
 
 def 加語料(request, pk=None):
+    if pk is not None:
+        物件 = 語料表.objects.get(pk=pk)
+    else:
+        物件 = None
     if request.method == 'POST':
-        表格 = 語料表格(request.POST)
+        表格 = 語料表格(request.POST, instance=物件)
         if 表格.is_valid():
             語料 = 表格.save()
             return redirect('正規化', 語料.pk)
-    elif pk is not None:
-        表格 = 語料表格(instance=語料表.objects.get(pk=pk))
     else:
-        表格 = 語料表格()
+        表格 = 語料表格(instance=物件)
     return render(request, '網路語料/加.html', {
         '表格': 表格,
     })
