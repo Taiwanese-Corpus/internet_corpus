@@ -12,16 +12,34 @@
 			</td>
 		</tr>
 		<tr>
-			<td></td>
-			<th>華語內容</th>
-			<td></td>
-			<th>臺語翻譯</th>
+			<td>
+        	   	{% include "網路語料/一格資料.html" with 資料=語料.華語來源 %}
+   			</td>
+			<td>
+        	   	{% include "網路語料/一格資料.html" with 資料=語料.臺語來源 %}
+   			</td>
+			<td colspan="2">
+				<h3>文本音標來源</h3>
+        	   	{% include "網路語料/一格資料.html" with 資料=語料.文本音標來源 %}
+   			</td>
 		</tr>
 		<tr>
-			<td></td>
-			<td>{{ 語料.華語內容 }}</td>
-			<td></td>
-			<td>{{ 語料.臺語內容 }}</td>
+			<td>
+				<h3>華語</h3>
+        	   	{% include "網路語料/一格資料.html" with 資料=語料.華語內容 %}
+	   		</td>
+			<td>
+				<h3>母語</h3>
+        	   	{% include "網路語料/一格資料.html" with 資料=語料.臺語內容 %}
+	   		</td>
+			<td>
+				<h3>文本</h3>
+        	   	{% include "網路語料/一格資料.html" with 資料=語料.文本內容 %}
+   			</td>
+			<td>
+				<h3>音標</h3>
+        	   	{% include "網路語料/一格資料.html" with 資料=語料.音標內容 %}
+   			</td>
 		</tr>
 	</table>
 	{% else %}
