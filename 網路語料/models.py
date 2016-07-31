@@ -9,15 +9,20 @@ from django import forms
     '名': '',
     '網址': '',
     '影片': '',
+    '標題': '',
+    '種類': '',
+    '語言腔口': '',
+    '著作所在地': '',
+    '著作年': '',
 }, indent=2, ensure_ascii=False, sort_keys=True)
 
 
 def 愛有名(value):
     try:
         資料 = json.loads(value)
-    except:
+    except Exception as 錯誤:
         raise forms.ValidationError(
-            ('愛是json'),
+            ('愛是json{}'.format(錯誤)),
         )
     try:
         名 = 資料['名']

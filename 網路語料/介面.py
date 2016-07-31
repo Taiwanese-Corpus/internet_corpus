@@ -10,12 +10,14 @@ def 全部語料(request):
     })
 
 
-def 加語料(request):
+def 加語料(request, pk=None):
     if request.method == 'POST':
         表格 = 語料表格(request.POST)
         if 表格.is_valid():
             語料 = 表格.save()
             return redirect('正規化', 語料.pk)
+    elif pk is not None:
+        表格 = 語料表格(instance=語料表.objects.get(pk=pk))
     else:
         表格 = 語料表格()
     return render(request, '網路語料/加.html', {
@@ -25,7 +27,7 @@ def 加語料(request):
 
 def 正規化語料(request, pk):
     if request.method == 'POST':
-        表格 = 正規化表格(request.POST)
+        表格 = 正規化表格(request.POST, instance=語料表.objects.get(pk=pk))
         if 表格.is_valid():
             _語料 = 表格.save()
             return redirect('首頁')
