@@ -61,10 +61,12 @@ class 語料表格(ModelForm):
         華語來源 = cleaned_data.get("華語來源")
 
         if 華語內容 != '':
-            愛有名(華語來源)
+            try:
+                愛有名(華語來源)
+            except Exception as 錯誤:
+                self.add_error('華語來源', 錯誤.message)
         elif 華語來源 != '':
-#             self.add_error('華語來源', '華語無內容有來源')
-            raise forms.ValidationError(('華語無內容有來源'),)
+            self.add_error('華語來源', '華語無內容有來源')
 
 
 class 正規化表格(ModelForm):
