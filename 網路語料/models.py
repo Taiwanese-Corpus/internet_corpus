@@ -16,6 +16,17 @@ from django import forms
     '著作年': '',
 }, indent=2, ensure_ascii=False, sort_keys=True)
 
+校對來源 = json.dumps({
+    "名": "薛丞宏",
+    "影片": "",
+    "標題": "",
+    "種類": "",
+    "網址": "",
+    "著作年": "2016",
+    "著作所在地": "",
+    "語言腔口": ""
+}, indent=2, ensure_ascii=False, sort_keys=True)
+
 
 def 愛有名(value):
     try:
@@ -41,12 +52,12 @@ class 語料表(models.Model):
     上尾修改時間 = models.DateField(auto_now=True)
 
     華語內容 = models.TextField(blank=True)
-    華語來源 = models.TextField(blank=True)
+    華語來源 = models.TextField(default=校對來源, blank=True)
     臺語內容 = models.TextField()
     臺語來源 = models.TextField(default=預設來源, validators=[愛有名])
     文本內容 = models.TextField()
     音標內容 = models.TextField()
-    文本音標來源 = models.TextField(default=預設來源, validators=[愛有名])
+    文本音標來源 = models.TextField(default=校對來源, validators=[愛有名])
 
     備註 = models.CharField(max_length=200, blank=True)
 
