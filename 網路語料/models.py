@@ -13,7 +13,7 @@ from django import forms
     '種類': '',
     '語言腔口': '',
     '著作所在地': '',
-    '著作年': '',
+    '著作年': '2016',
 }, indent=2, ensure_ascii=False, sort_keys=True)
 
 校對來源 = json.dumps({
